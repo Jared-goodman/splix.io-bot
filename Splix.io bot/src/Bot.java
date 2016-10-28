@@ -1,12 +1,15 @@
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 public class Bot {
 
 	public static void main(String[] args) throws AWTException, InterruptedException {
 		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(null, "Press the \"OK\" button to start the bot.");
 		Robot bot = new Robot();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
+		
 		//These are just to make code easier to read and to use:
 		int up = KeyEvent.VK_UP;
 		int down = KeyEvent.VK_DOWN;
