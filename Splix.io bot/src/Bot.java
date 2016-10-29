@@ -1,10 +1,15 @@
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import javax.swing.JOptionPane;
-public class Bot {
+import java.awt.event.KeyListener;
 
-	public static void main(String[] args) throws AWTException, InterruptedException {
+import javax.swing.JOptionPane;
+public class Bot implements KeyListener{
+	@Override
+	public void keyPressed(KeyEvent e) {
+		System.exit(0);
+	}
+	public static void main(String[] args)throws AWTException, InterruptedException {
 		// TODO Auto-generated method stub
 		JOptionPane.showMessageDialog(null, "Press the \"OK\" button to start the bot.");
 		Robot bot = new Robot();
@@ -23,15 +28,15 @@ public class Bot {
 		int[] currentDirection = upDirection;
 		while(true) {
 			//Change of direction:
-			if(count % 100 == 0) {
-				bot.keyPress(currentDirection[4]);
+			if(count % 50 == 0) {
+				bot.keyPress(currentDirection[3]);
 				Thread.sleep(500);
-				bot.keyRelease(currentDirection[4]);
+				bot.keyRelease(currentDirection[3]);
 			}
-			if(count<400) currentDirection = leftDirection;
-			if(count<300) currentDirection = downDirection;
-			if(count<200) currentDirection = rightDirection;
-			if(count<100) currentDirection = upDirection;
+			if(count<200) currentDirection = leftDirection;
+			if(count<150) currentDirection = downDirection;
+			if(count<100) currentDirection = rightDirection;
+			if(count<50) currentDirection = upDirection;
 			
 			if(count>400) count = 0;
 			//Key presses:
@@ -52,6 +57,16 @@ public class Bot {
 			Thread.sleep(400);
 			count ++;
 		}
+	}
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
